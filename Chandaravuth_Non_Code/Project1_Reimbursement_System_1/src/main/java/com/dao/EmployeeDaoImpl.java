@@ -20,7 +20,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try (Connection conn = DriverManager.getConnection(url, username, password)) {
 			String sql = String.format("INSERT INTO %s  VALUES(?,?,?,?,?,?)", TABLE);
 			PreparedStatement ps = conn.prepareStatement(sql);
-			int i = 0;	
+			int i = 0;
 			ps.setString(++i, null);
 			ps.setString(++i, exp.getUsername());
 			ps.setString(++i, exp.getFirstname());
@@ -28,57 +28,87 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			ps.setString(++i, exp.getPosition());
 			ps.setString(++i, exp.getPassword());
 			ps.executeUpdate();
-			//exp.setId_emp(getMaxId(TABLE));
+			// exp.setId_emp(getMaxId(TABLE));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
+
+	public void load(ResultSet rs, Employee exp) throws SQLException {
+		exp.setId_emp(rs.getInt("e_id"));
+		exp.setUsername(rs.getString("e_username"));
+		exp.setFirstname(rs.getString("e_firstname"));
+		exp.setLastname(rs.getString("e_lastname"));
+	}
+	
+	public Employee selectEmployee1(String name) {
+		Employee employee = null;
+		try (Connection conn = DriverManager.getConnection(url, username, password)) {
+			String sql = String.format("SELECT * FROM %s  WHERE e_username=?", TABLE);
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
 		
-	  public void load(ResultSet rs,Employee exp) throws SQLException  {
-		    exp.setId_emp(rs.getInt("e_id"));
-		    exp.setUsername(rs.getString("e_username"));
-		    exp.setFirstname(rs.getString("e_firstname"));
-		    exp.setLastname(rs.getString("e_lastname"));
-		  }
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()){
+					employee = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getString(6));
+				};
+
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return employee;
+	}
 
 	@Override
 	public Employee selectEmployee(String name, String p) {
 		Employee employee = null;
 		try (Connection conn = DriverManager.getConnection(url, username, password)) {
 			String sql = String.format("SELECT * FROM %s  WHERE e_username=? AND e_password=?", TABLE);
-			
-			
+
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, p);
 			ResultSet rs = ps.executeQuery();
 
-			while (rs.next()) {
-				employee = new Employee(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+			if (rs.next() == false) {
+
+				return null;
+			} else {
+
+				do {
+					employee = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getString(6));
+				} while (rs.next());
+
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 		return employee;
 	}
 
 	@Override
 	public void updateEmployee(Employee exp) {
 		try (Connection conn = DriverManager.getConnection(url, username, password)) {
-		    String sql = String.format(
-		            "update %s set e_username=?,e_firstname=?,e_lastname=? where e_id=?", TABLE);
-		    PreparedStatement ps = conn.prepareStatement(sql);
-		    int i=0;
-		    ps.setString(++i, exp.getUsername());
-		    ps.setString(++i, exp.getFirstname());
-		    ps.setString(++i, exp.getLastname());
-		    ps.setInt(++i, exp.getId_emp());
-		    ps.executeUpdate();
+			String sql = String.format("update %s set e_username=?,e_firstname=?,e_lastname=? where e_id=?", TABLE);
+			PreparedStatement ps = conn.prepareStatement(sql);
+			int i = 0;
+			ps.setString(++i, exp.getUsername());
+			ps.setString(++i, exp.getFirstname());
+			ps.setString(++i, exp.getLastname());
+			ps.setInt(++i, exp.getId_emp());
+			ps.executeUpdate();
 
-		    
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -104,7 +134,5 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 		return rs.getInt(1);
 	}
-	
-
 
 }

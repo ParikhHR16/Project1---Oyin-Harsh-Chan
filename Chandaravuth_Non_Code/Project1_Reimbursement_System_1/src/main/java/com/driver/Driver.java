@@ -1,17 +1,20 @@
 package com.driver;
 
+
+
 import com.dao.EmployeeDao;
 import com.dao.EmployeeDaoImpl;
 import com.model.Employee;
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		
-		//populate some data 
+	//populate some data 
 				//Employee emp = new Employee("usernamechan","chan","non","admin","123");
-				
-				String username = "usernamechan";
+				//"usernamechan"
+				//"123"
+				String username = "employee";
 				String password = "123";
 				
 				
@@ -21,16 +24,32 @@ public class Driver {
 				EmployeeDaoImpl pdImpl = new EmployeeDaoImpl();
 				Employee checkemp = new Employee();
 				
-				
-				checkemp =pdImpl.selectEmployee(username, password);
-				
-				if(username.equals(checkemp.getUsername()) & password.equals(checkemp.getPassword())) {
+			checkemp =pdImpl.selectEmployee(username, password);
+			//System.out.println(checkemp);
+				if(checkemp==(null))
+				{
+					System.out.println("WRONG USERNAME OR PASSWORD!");
+				}
+				else if(username.equals(checkemp.getUsername()) & password.equals(checkemp.getPassword()))
+				{
+					if("admin".equals(checkemp.getPosition()))
+					{
+						System.out.println("I am login as admin");
+					}
+					if("employee".equals(checkemp.getPosition()))
+					{
+						System.out.println("I am login as empoyee");
+					}
 					
-					System.out.println("I am login as admin");
 				}
 				else {
 					System.out.println("fail!!!!!!!!!!!");
 				}
+			
+			
+
+				
+
 				
 				
 		    //	pdImpl.insertEmployee(emp);
