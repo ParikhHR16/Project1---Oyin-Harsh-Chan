@@ -9,6 +9,20 @@ import java.sql.Statement;
 import com.model.Employee;
 
 public class EmployeeDaoImpl implements EmployeeDao {
+	
+	static{
+
+	       try {
+
+	           Class.forName("oracle.jdbc.driver.OracleDriver");
+
+	       } catch (ClassNotFoundException e) {
+
+	           e.printStackTrace();
+
+	       }
+
+	   }
 
 	public static final String TABLE = "employees";
 	private static String url = "jdbc:oracle:thin:@orcl.cncthujmniwo.us-east-1.rds.amazonaws.com:1521:orcl";
@@ -46,9 +60,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public Employee selectEmployee1(String name) {
 		Employee employee = null;
 		try (Connection conn = DriverManager.getConnection(url, username, password)) {
-			String sql = String.format("SELECT * FROM %s  WHERE e_username=?", TABLE);
+			//String sql = String.format("SELECT * FROM %s  WHERE e_username=?", TABLE);
 
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM employees WHERE e_username=?");
 			ps.setString(1, name);
 		
 			ResultSet rs = ps.executeQuery();

@@ -1,109 +1,171 @@
 package com.model;
 
+import java.util.Date;
+
 public class ExpenseTicket {
-	private int id_expense_ticket;
-	private int id_req_type;
+	private int id_e_t;
 	private int id_employee;
-	private String ticket_description;
-	private String ticket_status;
-	private String sub_date;
-	private String res_date;
-	private double exp_amount;
+	private double amount_e_t;
+	private Date sub_date_e_t;
+	private Date res_date_e_t;
+	private int status_e_t;
+	private String description_e_t;
+	private int req_e_t;
+	private int type_e_t;
+
+	
+	
 	
 	public ExpenseTicket() {
 		
 	}
-	
-	
 
-	public ExpenseTicket(int id_expense_ticket, int id_req_type, int id_employee, String ticket_description,
-			String ticket_status, String sub_date, String res_date, double exp_amount) {
+
+
+	public ExpenseTicket(int id_e_t, int id_employee, double amount_e_t, Date sub_date_e_t, Date res_date_e_t,
+			int status_e_t, String description_e_t, int req_e_t, int type_e_t) {
 		super();
-		this.id_expense_ticket = id_expense_ticket;
-		this.id_req_type = id_req_type;
+		this.id_e_t = id_e_t;
 		this.id_employee = id_employee;
-		this.ticket_description = ticket_description;
-		this.ticket_status = ticket_status;
-		this.sub_date = sub_date;
-		this.res_date = res_date;
-		this.exp_amount = exp_amount;
+		this.amount_e_t = amount_e_t;
+		this.sub_date_e_t = sub_date_e_t;
+		this.res_date_e_t = res_date_e_t;
+		this.status_e_t = status_e_t;
+		this.description_e_t = description_e_t;
+		this.req_e_t = req_e_t;
+		this.type_e_t = type_e_t;
 	}
 
 
 
-	public int getId_expense_ticket() {
-		return id_expense_ticket;
+	public int getId_e_t() {
+		return id_e_t;
 	}
 
-	public void setId_expense_ticket(int id_expense_ticket) {
-		this.id_expense_ticket = id_expense_ticket;
+
+
+	public void setId_e_t(int id_e_t) {
+		this.id_e_t = id_e_t;
 	}
 
-	public int getId_req_type() {
-		return id_req_type;
-	}
 
-	public void setId_req_type(int id_req_type) {
-		this.id_req_type = id_req_type;
-	}
 
 	public int getId_employee() {
 		return id_employee;
 	}
 
+
+
 	public void setId_employee(int id_employee) {
 		this.id_employee = id_employee;
 	}
 
-	public String getTicket_description() {
-		return ticket_description;
+
+
+	public double getAmount_e_t() {
+		return amount_e_t;
 	}
 
-	public void setTicket_description(String ticket_description) {
-		this.ticket_description = ticket_description;
+
+
+	public void setAmount_e_t(double amount_e_t) {
+		this.amount_e_t = amount_e_t;
 	}
 
-	public String getTicket_status() {
-		return ticket_status;
+
+
+	public Date getSub_date_e_t() {
+		return sub_date_e_t;
 	}
 
-	public void setTicket_status(String ticket_status) {
-		this.ticket_status = ticket_status;
+
+
+	public void setSub_date_e_t(Date sub_date_e_t) {
+		this.sub_date_e_t = sub_date_e_t;
 	}
 
-	public String getSub_date() {
-		return sub_date;
+
+
+	public Date getRes_date_e_t() {
+		return res_date_e_t;
 	}
 
-	public void setSub_date(String sub_date) {
-		this.sub_date = sub_date;
+
+
+	public void setRes_date_e_t(Date res_date_e_t) {
+		this.res_date_e_t = res_date_e_t;
 	}
 
-	public String getRes_date() {
-		return res_date;
+
+
+	public int getStatus_e_t() {
+		return status_e_t;
 	}
 
-	public void setRes_date(String res_date) {
-		this.res_date = res_date;
+
+
+	public void setStatus_e_t(int status_e_t) {
+		this.status_e_t = status_e_t;
 	}
 
-	public double getExp_amount() {
-		return exp_amount;
+
+
+	public String getDescription_e_t() {
+		return description_e_t;
 	}
 
-	public void setExp_amount(double exp_amount) {
-		this.exp_amount = exp_amount;
+
+
+	public void setDescription_e_t(String description_e_t) {
+		this.description_e_t = description_e_t;
+	}
+
+
+
+	public int getReq_e_t() {
+		return req_e_t;
+	}
+
+
+
+	public void setReq_e_t(int req_e_t) {
+		this.req_e_t = req_e_t;
+	}
+
+
+
+	public int getType_e_t() {
+		return type_e_t;
+	}
+
+
+
+	public void setType_e_t(int type_e_t) {
+		this.type_e_t = type_e_t;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "ExpenseTicket [id_expense_ticket=" + id_expense_ticket + ", id_req_type=" + id_req_type
-				+ ", id_employee=" + id_employee + ", ticket_description=" + ticket_description + ", ticket_status="
-				+ ticket_status + ", sub_date=" + sub_date + ", res_date=" + res_date + ", exp_amount=" + exp_amount
-				+ "]";
+		return "ExpenseTicket [id_e_t=" + id_e_t + ", id_employee=" + id_employee + ", amount_e_t=" + amount_e_t
+				+ ", sub_date_e_t=" + sub_date_e_t + ", res_date_e_t=" + res_date_e_t + ", status_e_t=" + status_e_t
+				+ ", description_e_t=" + description_e_t + ", req_e_t=" + req_e_t + ", type_e_t=" + type_e_t + "]";
 	}
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
 	
 	
 	

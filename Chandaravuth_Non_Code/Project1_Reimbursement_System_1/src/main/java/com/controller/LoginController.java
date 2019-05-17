@@ -11,15 +11,15 @@ public class LoginController {
         String password = request.getParameter("password");
         EmployeeDaoImpl empImpl = new EmployeeDaoImpl();
         Employee emp = new Employee();
-        emp = empImpl.selectEmployee(username, password);
-        
+       emp = empImpl.selectEmployee(username, password);
+     //  emp = empImpl.selectEmployee1(username);
 		if(emp==(null))
 		{
 			
 			return "/html/Login.html";
 			
 		}
-		else if(username.equals(emp.getUsername()) && password.equals(emp.getPassword()))
+		 if(username.equals(emp.getUsername()) & password.equals(emp.getPassword()))
 		{
 			if("admin".equals(emp.getPosition()))
 			{
@@ -32,7 +32,8 @@ public class LoginController {
 			
 		}
 		
-			return "/html/Login.html";
+		
+		return "/html/Login.html";
 		
         
 	}

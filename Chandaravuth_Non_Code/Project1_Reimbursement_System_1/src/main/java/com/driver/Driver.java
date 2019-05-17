@@ -14,7 +14,7 @@ public class Driver {
 				//Employee emp = new Employee("usernamechan","chan","non","admin","123");
 				//"usernamechan"
 				//"123"
-				String username = "employee";
+				String username = "usernamechan";
 				String password = "123";
 				
 				
