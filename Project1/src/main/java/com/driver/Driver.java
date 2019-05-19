@@ -8,9 +8,12 @@ import com.model.ExpenseTicket;
 public class Driver {
 
 	public static void main(String[] args) {
-		ExpenseTicket et = new ExpenseTicket(3,300,"2018-04-01","2019-01-09",2,"DRINK",2,1);
+/*		ExpenseTicket et = new ExpenseTicket(3,300,"2018-04-01","2019-01-09",2,"DRINK",2,1);
 		ExpenseTicketDaoImpl pdImpl = new ExpenseTicketDaoImpl();
-		pdImpl.insertExpenseTicket(et);
+		pdImpl.insertExpenseTicket(et);*/
+/*		Employee emp = new Employee("test","employeeTest","non","employee","123");
+		EmployeeDaoImpl pdImpl = new EmployeeDaoImpl();
+		pdImpl.insertEmployee(emp);*/
 		
 /*		Employee emp = new Employee("employee1","chan","non","employee","123");
 		Employee emp1 = new Employee("employee2","chan","non","employee","123");

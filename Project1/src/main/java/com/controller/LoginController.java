@@ -29,7 +29,7 @@ public class LoginController {
 	       }
 
 	   }
-
+	public static int employeeId;
 	public static final String TABLE = "employees";
 	private static String urlDatabase = "jdbc:oracle:thin:@orcl.cncthujmniwo.us-east-1.rds.amazonaws.com:1521:orcl";
 	private static String usernameDatabase = "project1";
@@ -67,6 +67,8 @@ public class LoginController {
 			}
 			if("employee".equals(emp.getPosition()))
 			{
+				employeeId=emp.getId_emp();
+				
 				return "/html/EmployeeHome.html";
 			}
 			
@@ -101,7 +103,7 @@ public class LoginController {
 						rs.getString(2),rs.getString(3),String.valueOf(rs.getInt(4)),
 						String.valueOf(rs.getDouble(5)),df.format(rs.getDate(6)).toString(),
 						df.format(rs.getDate(7)).toString(),String.valueOf(rs.getDouble(8)),
-						rs.getString(9),String.valueOf(10)));
+						rs.getString(9),String.valueOf(rs.getInt(10))));
 				
 				
 /*				empid.add(String.valueOf(rs.getInt(1)));

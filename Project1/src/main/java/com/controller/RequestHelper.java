@@ -12,6 +12,8 @@ public class RequestHelper {
 			return LoginController.Login(request);
 		case "/Project1/html/AdminHome.do":
 			return AdminHomeController.EmployeeJSON(request, response);
+		case "/Project1/html/NewExpense.do":
+			return EmployeeHomeController.EmployeeJSON(request);
 			
 			
 		default:
