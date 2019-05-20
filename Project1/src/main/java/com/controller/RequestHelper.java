@@ -15,6 +15,9 @@ public class RequestHelper {
 		case "/Project1/html/NewExpense.do":
 			return EmployeeHomeController.EmployeeJSON(request);
 			
+		case "/Project1/html/DenyAndApprove.do":
+			return DenyAndApproveController.Login(request);
+			
 			
 		default:
 			return "/html/Login.html";

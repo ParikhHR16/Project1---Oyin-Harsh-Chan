@@ -13,7 +13,7 @@ public interface ExpenseTicketDao {
 	public ExpenseTicket selectExpenseTicket();
 	
 	// UPDATE
-	public void updateExpenseTicket(ExpenseTicket exp);
+	public void updateExpenseTicket(int exp,int e);
 	
 	//DELETE
 	public void deleteExpenseTicket(ExpenseTicket exp);

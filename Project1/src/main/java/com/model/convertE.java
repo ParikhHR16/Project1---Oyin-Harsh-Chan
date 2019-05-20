@@ -14,9 +14,25 @@ public class convertE {
 	private String exp_s;
 	private String exp_description;
 	private String exp_T_id;
+	private String checkStatus;
+	
 	
 	public convertE() {
 		// TODO Auto-generated constructor stub
+	}
+	public convertE(String id_emp,String firstname, String lastname, String exp_type,String exp_amount,String exp_Date_s
+			,String exp_Date_r, String exp_s, String exp_description, String exp_T_id, String checkStatus) {
+		this.id_emp=id_emp;
+		this.firstname=firstname;
+		this.lastname=lastname;
+		this.exp_type=exp_type;
+		this.exp_amount=exp_amount;
+		this.exp_Date_s=exp_Date_s;
+		this.exp_Date_r=exp_Date_r;
+		this.exp_s=exp_s;
+		this.exp_description=exp_description;
+		this.exp_T_id=exp_T_id;
+		this.checkStatus=checkStatus;
 	}
 	
 	public convertE(String id_emp,String firstname, String lastname, String exp_type,String exp_amount,String exp_Date_s
@@ -150,13 +166,25 @@ public class convertE {
 	public void setExp_T_id(String exp_T_id) {
 		this.exp_T_id = exp_T_id;
 	}
+	
+
+	public String getCheckStatus() {
+		return checkStatus;
+	}
+
+	public void setCheckStatus(String checkStatus) {
+		this.checkStatus = checkStatus;
+	}
 
 	@Override
 	public String toString() {
 		return "convertE [id_emp=" + id_emp + ", username=" + username + ", firstname=" + firstname + ", lastname="
-				+ lastname + ", position=" + position + ", password=" + password + "]";
+				+ lastname + ", position=" + position + ", password=" + password + ", exp_type=" + exp_type
+				+ ", exp_amount=" + exp_amount + ", exp_Date_s=" + exp_Date_s + ", exp_Date_r=" + exp_Date_r
+				+ ", exp_s=" + exp_s + ", exp_description=" + exp_description + ", exp_T_id=" + exp_T_id
+				+ ", checkStatus=" + checkStatus + "]";
 	}
-	
+
 	
 	
 	

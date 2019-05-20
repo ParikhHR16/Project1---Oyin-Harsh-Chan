@@ -102,8 +102,21 @@ public class ExpenseTicketDaoImpl implements ExpenseTicketDao {
 	}
 
 	@Override
-	public void updateExpenseTicket(ExpenseTicket exp) {
-		// TODO Auto-generated method stub
+	public void updateExpenseTicket(int idT,int statusT) {
+		try (Connection conn = DriverManager.getConnection(url, username, password)) {
+			String query = "update expensekit set t_status = ? where t_id = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, statusT);
+			ps.setInt(2, idT);
+			
+		
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
 		
 	}
 
